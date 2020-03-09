@@ -15,6 +15,9 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "mongoose": "^5.9.3",
+    "morgan": "^1.9.1"
   }
 }

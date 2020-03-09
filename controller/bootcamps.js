@@ -5,7 +5,7 @@ exports.getBootcamps = (req, res, next) => {
     res.status(200).json({
         status: 'success',
         code: res.statusCode,
-        message: 'show all bootcamps'
+        message: 'show all bootcamps',
       })
 }
 
