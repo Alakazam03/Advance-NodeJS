@@ -4,3 +4,17 @@
     * functions that access has to req/res cycle and runs wihtin that cycle. It can set values before request goes to any of the routes. next defines the move to next middlware.
   
 4. morgan for logger
+5. colors for advance console logging
+6. to use req.body we need a body parser.
+7. every mongoose memthod returns a promise
+8. findbyidandupdate does not do validation. we have to mention explicitly
+
+[1] Anyway, bodyParser.json() returns a function, and when that function is passed into app.use, it acts just like any other middleware. It may be helpful to think about it like this:
+var cb = bodyParser.json();
+app.use(cb);
+
+
+
+
+links
+1. body parser: https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
