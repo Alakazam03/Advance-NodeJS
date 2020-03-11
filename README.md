@@ -1,3 +1,6 @@
+# Advance NodeJS Hands-on
+
+## Learnings and keywords
 1. routes for each resource
 2. controller to seperate out logic from routes. each route map to controller
 3. middleware
@@ -8,6 +11,7 @@
 6. to use req.body we need a body parser.
 7. every mongoose memthod returns a promise
 8. findbyidandupdate does not do validation. we have to mention explicitly
+9. customised error handler
 
 [1] Anyway, bodyParser.json() returns a function, and when that function is passed into app.use, it acts just like any other middleware. It may be helpful to think about it like this:
 var cb = bodyParser.json();
