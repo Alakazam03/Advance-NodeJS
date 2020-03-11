@@ -7,7 +7,6 @@ const Bootcamp = require('../models/Bootcamp');
 exports.getBootcamps = (req, res, next) => {
   Bootcamp.find({}, (err, data) => {
     if(err) {
-      console.log(err)
       res.status(400).json({
         status: 'failure',
         code: res.statusCode,
@@ -33,12 +32,13 @@ exports.getBootcamps = (req, res, next) => {
 exports.getBootcamp = (req, res, next) => {
   Bootcamp.findById(req.params.id, (err, data) => {
     if(err) {
-      console.log(err)
-      res.status(400).json({
-        status: 'failure',
-        code: res.statusCode,
-        message: 'bootcamp not created'
-      })
+      // console.log(err)
+      // res.status(400).json({
+      //   status: 'failure',
+      //   code: res.statusCode,
+      //   message: 'bootcamp not created'
+      // })
+      next(err)
     }
     else{
       res.status(200).json({
