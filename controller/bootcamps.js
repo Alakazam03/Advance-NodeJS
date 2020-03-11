@@ -1,4 +1,5 @@
 const Bootcamp = require('../models/Bootcamp');
+const ErrorResponse = require('../utils/errorResponse')
 
 
 // @desc Get all bootcamps
@@ -38,13 +39,15 @@ exports.getBootcamp = (req, res, next) => {
       //   code: res.statusCode,
       //   message: 'bootcamp not created'
       // })
-      next(err)
+      next(new ErrorResponse(`Bootcamp not found with id: ${req.params.id}`, 404))
     }
     else{
+      if(!data) {
+        return next(new ErrorResponse(`Bootcamp not found with id: ${req.params.id}`, 404))
+      }
       res.status(200).json({
         status: 'success',
         code: res.statusCode,
-        message: 'created new bootcamp',
         data: data
       })
     }
