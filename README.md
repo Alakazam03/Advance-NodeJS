@@ -20,5 +20,6 @@ app.use(cb);
 
 
 
-links
+## links
 1. body parser: https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
+2. colors: https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/
