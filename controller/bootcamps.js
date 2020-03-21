@@ -1,17 +1,18 @@
 const Bootcamp = require('../models/Bootcamp');
 const ErrorResponse = require('../utils/errorResponse')
+const asyncHandler = require('../middleware/aysnc')
 
 
 // @desc Get all bootcamps
 // @route GET /api/v1/bootcamps
 // @access Public
-exports.getBootcamps = (req, res, next) => {
+exports.getBootcamps = asyncHandler((req, res, next) => {
   Bootcamp.find({}, (err, data) => {
     if(err) {
       res.status(400).json({
         status: 'failure',
         code: res.statusCode,
-        message: 'bootcamp not created'
+        message: 'bootcamp not found'
       })
     }
     else{
@@ -25,7 +26,7 @@ exports.getBootcamps = (req, res, next) => {
     }
   })
     
-}
+})
 
 // @desc Get single bootcamps
 // @route GET /api/v1/bootcamps/:id
@@ -33,17 +34,11 @@ exports.getBootcamps = (req, res, next) => {
 exports.getBootcamp = (req, res, next) => {
   Bootcamp.findById(req.params.id, (err, data) => {
     if(err) {
-      // console.log(err)
-      // res.status(400).json({
-      //   status: 'failure',
-      //   code: res.statusCode,
-      //   message: 'bootcamp not created'
-      // })
-      next(new ErrorResponse(`Bootcamp not found with id: ${req.params.id}`, 404))
+      next(err)
     }
     else{
       if(!data) {
-        return next(new ErrorResponse(`Bootcamp not found with id: ${req.params.id}`, 404))
+        return next(err)
       }
       res.status(200).json({
         status: 'success',
@@ -61,12 +56,7 @@ exports.createBootcamp = (req, res, next) => {
     // console.log(req);
     Bootcamp.create(req.body, (err, data) => {
       if(err) {
-        console.log(err)
-        res.status(500).json({
-          status: 'failure',
-          code: res.statusCode,
-          message: 'bootcamp not created'
-        })
+        next(err)
       }
       else{
         res.status(200).json({

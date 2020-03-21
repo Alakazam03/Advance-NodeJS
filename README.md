@@ -23,3 +23,11 @@ app.use(cb);
 ## links
 1. body parser: https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
 2. colors: https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/
+3. mongo charts: https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable
+4. mongo middlewares:
+5. slug: https://medium.com/@thiscodeworks.com/implementing-url-slugs-on-express-node-js-5f5890431dea
+6. geocoder: 
+
+
+## Concepts
+1. callback vs promises: 

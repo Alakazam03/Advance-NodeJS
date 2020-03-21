@@ -21,6 +21,7 @@
     "install": "^0.13.0",
     "mongoose": "^5.9.3",
     "morgan": "^1.9.1",
+    "node-geocoder": "^3.25.1",
     "slugify": "^1.4.0"
   }
 }
