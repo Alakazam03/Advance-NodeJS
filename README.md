@@ -30,4 +30,4 @@ app.use(cb);
 
 
 ## Concepts
-1. callback vs promises: 
+1. callback: http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
