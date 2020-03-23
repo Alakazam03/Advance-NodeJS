@@ -36,7 +36,7 @@ const importData = async () => {
 
 
 // Delete data
-const deletData = async () => {
+const deleteData = async () => {
     try{
         await Bootcamp.deleteMany();
         console.log("data destroyed".red.inverse)
@@ -51,5 +51,5 @@ if(process.argv[2] === '-i'){
     importData()
 }
 else if (process.argv[2] === '-d'){
-    deletData()
+    deleteData()
 }
