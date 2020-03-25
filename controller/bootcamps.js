@@ -8,7 +8,6 @@ const geocoder = require('../utils/geocoder')
 // @route GET /api/v1/bootcamps
 // @access Public
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
-  let query;
    // Copy req.query
   const reqQuery = { ...req.query };
 
@@ -19,10 +18,9 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   // Create query string
   let queryString = JSON.stringify(reqQuery);
 
-  // console.log(reqQuery)
-  // Create operators ($gte, $lte)
+  // Create operators ($gte, $lte, $in)
   queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
-  query = Bootcamp.find(JSON.parse(queryString));
+  let query = Bootcamp.find(JSON.parse(queryString));
 
   // Select fields
   if (req.query.select) {
@@ -30,7 +28,6 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
     console.log(fields);
     query = query.select(fields);
   } 
-
   // Sort
   if (req.query.sort) {
     const sortBy = req.query.sort.split(',').join(' ');
@@ -40,33 +37,24 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   }
   
   // Execute query
-  const bootcamps = await query;
-  res.status(200).json({
-    status: 'success',
-    code: res.statusCode,
-    count: bootcamps.length,
-    message: 'Required bootcamp',
-    data: bootcamps
+  query.exec((err, data) => {
+    if(err) {
+      res.status(400).json({
+        status: 'failure',
+        code: res.statusCode,
+        message: 'bootcamp not found'
+      })
+    }
+    else{
+      res.status(200).json({
+        status: 'success',
+        code: res.statusCode,
+        count: data.length,
+        message: 'Required bootcamp',
+        data: data
+      })
+    }
   })
-
-  // Bootcamp.find(query, (err, data) => {
-  //   if(err) {
-  //     res.status(400).json({
-  //       status: 'failure',
-  //       code: res.statusCode,
-  //       message: 'bootcamp not found'
-  //     })
-  //   }
-  //   else{
-  //     res.status(200).json({
-  //       status: 'success',
-  //       code: res.statusCode,
-  //       count: data.length,
-  //       message: 'Required bootcamp',
-  //       data: data
-  //     })
-  //   }
-  // })
     
 })
 
