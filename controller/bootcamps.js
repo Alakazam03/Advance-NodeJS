@@ -7,32 +7,69 @@ const geocoder = require('../utils/geocoder')
 // @desc Get all bootcamps
 // @route GET /api/v1/bootcamps
 // @access Public
-exports.getBootcamps = asyncHandler((req, res, next) => {
+exports.getBootcamps = asyncHandler(async (req, res, next) => {
   let query;
-  let queryString = JSON.stringify(req.query);
-  queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
-  query = JSON.parse(queryString);
+   // Copy req.query
+  const reqQuery = { ...req.query };
+
+  // Fields to remove
+  const removeFields = ['select', 'sort'];
+  removeFields.forEach(param => delete reqQuery[param]);
   
-  Bootcamp.find(query, (err, data) => {
-    if(err) {
-      res.status(400).json({
-        status: 'failure',
-        code: res.statusCode,
-        message: 'bootcamp not found'
-      })
-    }
-    else{
-      res.status(200).json({
-        status: 'success',
-        code: res.statusCode,
-        message: 'created new bootcamp',
-        data: data,
-        count: data.length
-      })
-    }
+  // Create query string
+  let queryString = JSON.stringify(reqQuery);
+
+  // console.log(reqQuery)
+  // Create operators ($gte, $lte)
+  queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
+  query = Bootcamp.find(JSON.parse(queryString));
+
+  // Select fields
+  if (req.query.select) {
+    const fields = req.query.select.split(',').join(' ');
+    console.log(fields);
+    query = query.select(fields);
+  } 
+
+  // Sort
+  if (req.query.sort) {
+    const sortBy = req.query.sort.split(',').join(' ');
+    query = query.sort(sortBy)
+  } else {
+    query = query.sort('-createdAt')
+  }
+  
+  // Execute query
+  const bootcamps = await query;
+  res.status(200).json({
+    status: 'success',
+    code: res.statusCode,
+    count: bootcamps.length,
+    message: 'Required bootcamp',
+    data: bootcamps
   })
+
+  // Bootcamp.find(query, (err, data) => {
+  //   if(err) {
+  //     res.status(400).json({
+  //       status: 'failure',
+  //       code: res.statusCode,
+  //       message: 'bootcamp not found'
+  //     })
+  //   }
+  //   else{
+  //     res.status(200).json({
+  //       status: 'success',
+  //       code: res.statusCode,
+  //       count: data.length,
+  //       message: 'Required bootcamp',
+  //       data: data
+  //     })
+  //   }
+  // })
     
 })
+
 
 // @desc Get single bootcamps
 // @route GET /api/v1/bootcamps/:id

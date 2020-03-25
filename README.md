@@ -20,7 +20,7 @@ app.use(cb);
 
 
 
-## links
+### links
 1. body parser: https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
 2. colors: https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/
 3. mongo charts: https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable
@@ -29,5 +29,10 @@ app.use(cb);
 6. geocoder: 
 
 
-## Concepts
+### Concepts
 1. callback: http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
+2. let vs const vs var : http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/
+
+
+### Third Party Integration
+1. aws-ses: https://medium.com/@maciej.lisowski.elk/nodejs-and-amazon-ses-how-to-send-emails-from-your-application-5c24b1f9b67b
