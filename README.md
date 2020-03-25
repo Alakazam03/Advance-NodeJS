@@ -36,3 +36,8 @@ app.use(cb);
 
 ### Third Party Integration
 1. aws-ses: https://medium.com/@maciej.lisowski.elk/nodejs-and-amazon-ses-how-to-send-emails-from-your-application-5c24b1f9b67b
+
+
+
+### mongoDb and mongoose
+1. queries: https://mongoosejs.com/docs/queries.html

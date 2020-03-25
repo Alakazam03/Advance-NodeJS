@@ -12,7 +12,7 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   const reqQuery = { ...req.query };
 
   // Fields to remove
-  const removeFields = ['select', 'sort'];
+  const removeFields = ['select', 'sort', 'limit', 'page'];
   removeFields.forEach(param => delete reqQuery[param]);
   
   // Create query string
@@ -25,7 +25,6 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   // Select fields
   if (req.query.select) {
     const fields = req.query.select.split(',').join(' ');
-    console.log(fields);
     query = query.select(fields);
   } 
   // Sort
@@ -35,6 +34,11 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   } else {
     query = query.sort('-createdAt')
   }
+  // Pagination
+  const page = parseInt(req.query.page, 10) || 1;
+  const limit = parseInt(req.query.limit, 10) || 10;
+  const startIndex = (page - 1) * limit;
+  query.skip(startIndex).limit(limit);
   
   // Execute query
   query.exec((err, data) => {
@@ -46,6 +50,7 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
       })
     }
     else{
+
       res.status(200).json({
         status: 'success',
         code: res.statusCode,
