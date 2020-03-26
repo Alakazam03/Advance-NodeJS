@@ -1,6 +1,9 @@
 # Advance NodeJS Hands-on
 
-## Learnings and keywords
+Adavnce nodeJS code practices and tools. This repository provides links to useful tools and concepts needed to get your app production ready.
+
+## Learnings and Keywords
+
 1. routes for each resource
 2. controller to seperate out logic from routes. each route map to controller
 3. middleware
@@ -9,35 +12,40 @@
 4. morgan for logger
 5. colors for advance console logging
 6. to use req.body we need a body parser.
-7. every mongoose memthod returns a promise
-8. findbyidandupdate does not do validation. we have to mention explicitly
+7. every mongoose method returns a promise
+8. findbyidandupdate does not do validation. we have to mention explicitly if updated data is needed.
 9. customised error handler
 
-[1] Anyway, bodyParser.json() returns a function, and when that function is passed into app.use, it acts just like any other middleware. It may be helpful to think about it like this:
+* Anyway, bodyParser.json() returns a function, and when that function is passed into app.use, it acts just like any other middleware. It may be helpful to think about it like this:
 var cb = bodyParser.json();
 app.use(cb);
 
 
 
 
-### links
-1. body parser: https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
-2. colors: https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/
-3. mongo charts: https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable
-4. mongo middlewares:
-5. slug: https://medium.com/@thiscodeworks.com/implementing-url-slugs-on-express-node-js-5f5890431dea
-6. geocoder: 
+### Links
+
+1. Body Parser: <https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90>
+2. Colors: <https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/>
+3. Slug: <https://medium.com/@thiscodeworks.com/implementing-url-slugs-on-express-node-js-5f5890431dea>
+4. Geocoder: 
 
 
 ### Concepts
-1. callback: http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
-2. let vs const vs var : http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/
+
+1. Callback: <http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/>
+2. let vs const vs var : <http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/>
 
 
 ### Third Party Integration
-1. aws-ses: https://medium.com/@maciej.lisowski.elk/nodejs-and-amazon-ses-how-to-send-emails-from-your-application-5c24b1f9b67b
+
+1. AWS SES Integration: <https://medium.com/@maciej.lisowski.elk/nodejs-and-amazon-ses-how-to-send-emails-from-your-application-5c24b1f9b67b>
 
 
 
 ### mongoDb and mongoose
-1. queries: https://mongoosejs.com/docs/queries.html
+
+1. queries: <https://mongoosejs.com/docs/queries.html>
+2. virtuals: <https://mongoosejs.com/docs/guide.html#virtuals>
+3. Mongo Charts: <https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable>
+4. Mongo Middlewares:
