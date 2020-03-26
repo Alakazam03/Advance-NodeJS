@@ -17,6 +17,7 @@ connectDB();
 
 //route files
 const bootcamps = require('./routes/bootcamps')
+const courses = require('./routes/courses')
 const app = express();
 
 //bosy parse
@@ -27,8 +28,9 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 
-//mount 
+// mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000;
