@@ -21,14 +21,13 @@ var cb = bodyParser.json();
 app.use(cb);
 
 
-
-
 ### Links
 
 1. Body Parser: <https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90>
 2. Colors: <https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/>
 3. Slug: <https://medium.com/@thiscodeworks.com/implementing-url-slugs-on-express-node-js-5f5890431dea>
-4. Geocoder: 
+4. express-fileupload: 
+5. Geocoder: 
 
 
 ### Concepts
@@ -43,9 +42,9 @@ app.use(cb);
 
 
 
-### mongoDb and mongoose
+### MongoDb and Mongoose
 
 1. queries: <https://mongoosejs.com/docs/queries.html>
 2. virtuals: <https://mongoosejs.com/docs/guide.html#virtuals>
 3. Mongo Charts: <https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable>
-4. Mongo Middlewares:
+4. Mongo Statics: <https://stackoverflow.com/questions/39708841/what-is-the-use-of-mongoose-methods-and-statics>
