@@ -12,7 +12,6 @@ const errorHandler = (err, req, res, next) => {
         error = new ErrorResponse(errorMessage, 404);
     }
     else if (err.name === 'Error') {
-        console.log("Fdf")
         const errorMessage = 'Server error';
         error = new ErrorResponse(errorMessage, 500);
     }

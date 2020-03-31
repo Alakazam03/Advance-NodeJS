@@ -28,6 +28,7 @@ app.use(cb);
 3. Slug: <https://medium.com/@thiscodeworks.com/implementing-url-slugs-on-express-node-js-5f5890431dea>
 4. express-fileupload: 
 5. Geocoder: 
+6. json web token: <https://json.io> 
 
 
 ### Concepts
@@ -48,3 +49,4 @@ app.use(cb);
 2. virtuals: <https://mongoosejs.com/docs/guide.html#virtuals>
 3. Mongo Charts: <https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable>
 4. Mongo Statics: <https://stackoverflow.com/questions/39708841/what-is-the-use-of-mongoose-methods-and-statics>
+
