@@ -27,8 +27,9 @@ app.use(cb);
 2. Colors: <https://nodejs.org/en/knowledge/command-line/how-to-get-colors-on-the-command-line/>
 3. Slug: <https://medium.com/@thiscodeworks.com/implementing-url-slugs-on-express-node-js-5f5890431dea>
 4. express-fileupload: 
-5. Geocoder: 
+5. Geocoder: <https://www.npmjs.com/package/node-geocoder>
 6. json web token: <https://json.io> 
+7. cookie parser: <https://www.npmjs.com/package/cookie-parser>
 
 
 ### Concepts

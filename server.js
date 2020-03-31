@@ -6,6 +6,7 @@ const connectDB = require('./config/db')
 const colors = require('colors');
 const fileupload = require('express-fileupload');
 const errorHandler = require('./middleware/error');
+const cookieParser = require('cookie-parser');
 
 
 //load env
@@ -22,6 +23,9 @@ const app = express();
 
 //bosy parser
 app.use(express.json())
+// cookie-parser
+app.use(cookieParser())
+
 //dev logging middleware
 if(process.env.NODE_ENV === 'development'){
   app.use(morgan('dev'));
