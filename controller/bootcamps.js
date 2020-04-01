@@ -37,9 +37,20 @@ exports.getBootcamp = (req, res, next) => {
 // @desc Create single bootcamps
 // @route POST /api/v1/bootcamps/
 // @access Private
-exports.createBootcamp = (req, res, next) => {
-    // console.log(req);
-    Bootcamp.create(req.body, (err, data) => {
+exports.createBootcamp = async (req, res, next) => {
+  // Add user
+  req.body.user = req.user.id;
+
+  // Check for published bootcamp
+  const publishedBootcamp = await Bootcamp.findOne({ user: req.user.id });
+
+  // If user is not an admin, he cant add more than one course
+  if (publishedBootcamp && req.user.role !== 'admin') {
+    return next (
+      new ErrorResponse(`The user id ${req.user.id} has already published a bootcamp.`, 400)
+    );
+  }
+  Bootcamp.create(req.body, (err, data) => {
       if(err) {
         next(err)
       }
