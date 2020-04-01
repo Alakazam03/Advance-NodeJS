@@ -36,6 +36,7 @@ app.use(cb);
 
 1. Callback: <http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/>
 2. let vs const vs var : <http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/>
+3. spread operator
 
 
 ### Third Party Integration

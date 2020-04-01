@@ -5,7 +5,7 @@ const errorHandler = (err, req, res, next) => {
     let error = { ...err }
     error.message = err.message;
     //log to console for dev
-    console.log(err)
+    // console.log(err.message)
     //Mongoose bad object id
     if (err.name === 'CastError') {
         const errorMessage = `Resource not found with id of ${err.value}.`;
@@ -13,7 +13,7 @@ const errorHandler = (err, req, res, next) => {
     }
     else if (err.name === 'Error') {
         const errorMessage = 'Server error';
-        error = new ErrorResponse(errorMessage, 500);
+        error = new ErrorResponse(err.message, 500);
     }
     else if (err.code === 11000) {
         const errorMessage = `Duplicates field values entered`;
