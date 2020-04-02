@@ -70,43 +70,79 @@ exports.createBootcamp = async (req, res, next) => {
 // @route PUT /api/v1/bootcamps/:id
 // @access Public
 exports.updateBootcamp = (req, res, next) => {
-  Bootcamp.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  }, (err, data) => {
+  Bootcamp.findById(req.params.id, (err, bootcamp) => {
     if(err) {
       console.log(err)
       res.status(500).json({
         status: 'failure',
         code: res.statusCode,
-        message: 'bootcamp not created'
+        message: 'bootcamp not found'
       })
     }
     else{
+      if (!bootcamp) {
+        return next(
+          new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404)
+        );
+      }
+      // make sure user is owner
+      if (bootcamp.user.toString() !== req.user.id && req.user.role !== 'admin') {
+        return next(
+          new ErrorResponse(`User  not authorized to change ${req.params.id}`, 404)
+        );
+      }
+    }
+  })
+
+  Bootcamp.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  }, (err, bootcamp) => {
+    if (error) {
+      res.status(500).json({
+        status: 'failure',
+        code: res.statusCode,
+        message: 'bootcamp not found'
+      })
+    } else {
       res.status(200).json({
         status: 'success',
         code: res.statusCode,
         message: 'created new bootcamp',
-        data: data
+        data: bootcamp
       })
     }
   })
-    res.status(200).json({
-        status: 'success',
-        code: res.statusCode,
-        message: `update bootcamp for ${req.params.id}`
-      })
+    // res.status(200).json({
+    //     status: 'success',
+    //     code: res.statusCode,
+    //     message: `update bootcamp for ${req.params.id}`
+    //   })
 }
 
 // @desc Delete single bootcamps
 // @route DELETE /api/v1/bootcamps/:id
 // @access Private
 exports.deleteBootcamp = (req, res, next) => {
-    res.status(200).json({
-        status: 'success',
-        code: res.statusCode,
-        message: `delete bootcamp ${req.params.id}`
+  Bootcamp.deleteOne(req.params.id, (error, data) => {
+    if (error) {
+      res.status(400).json({
+        status: 'failure',
+        message: 'Bootcamp could not be deleted.'
       })
+    } 
+    else {
+      res.status(200).json({
+        status: 'success',
+        message: 'Bootcamp deleted.'
+      })
+    }
+  })
+    // res.status(200).json({
+    //     status: 'success',
+    //     code: res.statusCode,
+    //     message: `delete bootcamp ${req.params.id}`
+    //   })
 }
 
 // @desc GET  bootcamps within radius
@@ -147,6 +183,13 @@ exports.bootcampPhotoUpload = asyncHandler(async(req, res, next) => {
       new ErrorResponse(`Bootcamp not found with id ${req.params.id}`, 404)
     )
   }
+  // make sure user is owner
+  if (bootcamp.user.toString() !== req.user.id && req.user.role !== 'admin') {
+    return next(
+      new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404)
+    );
+  }
+
   if (!req.files) {
     return next(
       new ErrorResponse(`Please upload file.`, 404)
