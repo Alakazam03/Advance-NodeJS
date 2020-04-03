@@ -7,6 +7,7 @@ const sendEmail = require('../utils/sendEmail');
 
 // @desc Register user
 // @route POST /api/v1/auth/register
+// @access Public
 exports.register = asyncHandler(async(req, res, next) => {
     const { name, email, password, role } = req.body;
 
@@ -148,6 +149,24 @@ exports.updateDetails = asyncHandler(async(req, res, next) => {
 		data: user
 	})
 })
+
+// @desc Update password
+// @route PUT /api/v1/auth/updatepassword
+// @access Private
+exports.updatePassword = asyncHandler(async(req, res, next) => {
+    const user = await User.findById(req.user.id).select('+password');
+    //Check current password
+    if (!(await user.matchPassword(req.body.currentPassword))) {
+        return next(
+            new ErrorResponse('Passowrd is incorrect', 401)
+        )
+    }
+
+    user.password = req.body.newPassword;
+    await user.save();
+    sendTokenResponse(user, 200, res);
+})
+
 
 // Get token from model, create cookie and send response
 const sendTokenResponse = (user, statusCode, res) => {
