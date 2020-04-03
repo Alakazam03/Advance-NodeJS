@@ -42,7 +42,8 @@ app.use(cb);
 ### Third Party Integration
 
 1. AWS SES Integration: <https://medium.com/@maciej.lisowski.elk/nodejs-and-amazon-ses-how-to-send-emails-from-your-application-5c24b1f9b67b>
-
+2. Nodemailer: <https://nodemailer.com/about/>
+3. Mail trap: <https://www.mailtrap.io>
 
 
 ### MongoDb and Mongoose
