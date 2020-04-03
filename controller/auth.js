@@ -130,6 +130,25 @@ exports.resetPassword = asyncHandler( async(req, res, next) => {
 	sendTokenResponse(user, 200, res);
 })
 
+// @desc Update user details
+// @route PUT /api/v1/auth/updatedetails
+// @access Private
+exports.updateDetails = asyncHandler(async(req, res, next) => {
+    const fieldToUpdate = {
+        name: req.body.name,
+        email: req.body.email
+    }
+    const user = await User.findByIdAndUpdate(req.user.id, fieldToUpdate, {
+        new: true,
+        runValidators: true
+    });
+	
+	res.status(200).json({
+		status: 'success',
+		data: user
+	})
+})
+
 // Get token from model, create cookie and send response
 const sendTokenResponse = (user, statusCode, res) => {
     const token = user.getSignedJwtToken();
