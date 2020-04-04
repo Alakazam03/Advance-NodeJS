@@ -30,6 +30,7 @@ app.use(cb);
 5. Geocoder: <https://www.npmjs.com/package/node-geocoder>
 6. json web token: <https://json.io> 
 7. cookie parser: <https://www.npmjs.com/package/cookie-parser>
+8. Agenda: <https://medium.com/hacktive-devs/nodejs-scheduling-tasks-agenda-js-4b6824f9457e>
 
 
 ### Concepts
