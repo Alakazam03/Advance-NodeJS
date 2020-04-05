@@ -17,16 +17,22 @@
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6",
+    "express-mongo-sanitize": "^2.0.0",
+    "express-rate-limit": "^5.1.1",
     "geocoder": "^0.2.3",
+    "helmet": "^3.22.0",
+    "hpp": "^0.2.3",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.3",
     "morgan": "^1.9.1",
     "node-geocoder": "^3.25.1",
     "nodemailer": "^6.4.6",
-    "slugify": "^1.4.0"
+    "slugify": "^1.4.0",
+    "xss-clean": "^0.1.1"
   }
 }
