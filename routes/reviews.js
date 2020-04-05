@@ -1,5 +1,7 @@
 const express = require('express');
-const { getReviews, getReview, addReview} = require('../controller/reviews')
+const { getReviews, getReview,
+     addReview, updateReview,
+    deleteReview} = require('../controller/reviews')
 
 const advancedResults = require('../middleware/advancedResults');
 const Review = require('../models/Review');
@@ -18,7 +20,8 @@ router
 
 router
     .route('/:id')
-    .get(getReview);
+    .get(getReview)
+    .put(protect, authorize('user', 'admin'), updateReview)
+    .delete(protect, authorize('user', 'admin'), deleteReview);
     
-
 module.exports = router;

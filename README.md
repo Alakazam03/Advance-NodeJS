@@ -52,5 +52,5 @@ app.use(cb);
 1. queries: <https://mongoosejs.com/docs/queries.html>
 2. virtuals: <https://mongoosejs.com/docs/guide.html#virtuals>
 3. Mongo Charts: <https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable>
-4. Mongo Statics: <https://stackoverflow.com/questions/39708841/what-is-the-use-of-mongoose-methods-and-statics>
+4. Mongo Statics: <https://stackoverflow.com/questions/39708841/what-is-the-use-of-mongoose-methods-and-statics>, <https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/static-functions-vs-instance-methods>
 
