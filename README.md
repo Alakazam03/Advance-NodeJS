@@ -30,7 +30,7 @@ app.use(cb);
 5. Geocoder: <https://www.npmjs.com/package/node-geocoder>
 6. json web token: <https://json.io> 
 7. cookie parser: <https://www.npmjs.com/package/cookie-parser>
-8. Agenda: <https://medium.com/hacktive-devs/nodejs-scheduling-tasks-agenda-js-4b6824f9457e>
+8. Agenda.js: <https://medium.com/hacktive-devs/nodejs-scheduling-tasks-agenda-js-4b6824f9457e>
 
 
 ### Concepts
@@ -54,3 +54,16 @@ app.use(cb);
 3. Mongo Charts: <https://www.mongodb.com/blog/post/mongodb-charts-gets-embeddable>
 4. Mongo Statics: <https://stackoverflow.com/questions/39708841/what-is-the-use-of-mongoose-methods-and-statics>, <https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/static-functions-vs-instance-methods>
 
+### Postman
+
+1. Enabling cookies: <https://stackoverflow.com/questions/30890403/sending-cookies-with-postman>
+
+
+### Security
+
+   1. Sql injection: <express-mongo-sanitize>
+   2. Security headers using helmet: <https://helmetjs.github.io/>
+   3. XSS: Avoid any html tags inside any text. <https://www.npmjs.com/package/xss-clean>
+   4. Rate-limit: <https://github.com/nfriedly/express-rate-limit>
+   5. protect against HTTP Parameter Pollution attacks: <https://github.com/analog-nico/hpp>
+   6. cors: <https://github.com/expressjs/cors>
