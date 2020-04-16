@@ -67,3 +67,18 @@ app.use(cb);
    4. Rate-limit: <https://github.com/nfriedly/express-rate-limit>
    5. protect against HTTP Parameter Pollution attacks: <https://github.com/analog-nico/hpp>
    6. cors: <https://github.com/expressjs/cors>
+   7. ssl: [Detailed thoughts on https](https://www.smashingmagazine.com/2017/06/guide-switching-http-https/)
+      1. [setting-up-a-node-js-app-on-a-linux-ami-on-an-aws-ec2-instance-with-nginx](https://medium.com/@nishankjaintdk/setting-up-a-node-js-app-on-a-linux-ami-on-an-aws-ec2-instance-with-nginx-59cbc1bcc68c)
+      2. [node-nginx-ec2 setup](https://regbrain.com/article/node-nginx-ec2)
+      3. [serving-a-website-on-a-registered-domain-with-https-using-nginx-and-lets-encrypt](https://medium.com/@nishankjaintdk/serving-a-website-on-a-registered-domain-with-https-using-nginx-and-lets-encrypt-8d482e01a682)
+   
+
+### Logging
+
+1. [logging best practices](https://blog.bitsrc.io/logging-best-practices-for-node-js-applications-8a0a5969b94c)
+2. [guide nodejs blogging](https://www.twilio.com/blog/guide-node-js-logging)
+3. [winston example](https://truetocode.com/logging-in-node-js-express-application-using-winston-logger/)
+
+### Best practices
+
+1. [advanced best express practices](https://expressjs.com/en/advanced/best-practice-performance.html#do-logging-correctly)
