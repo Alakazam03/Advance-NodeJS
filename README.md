@@ -45,6 +45,7 @@ app.use(cb);
 1. AWS SES Integration: <https://medium.com/@maciej.lisowski.elk/nodejs-and-amazon-ses-how-to-send-emails-from-your-application-5c24b1f9b67b>
 2. Nodemailer: <https://nodemailer.com/about/>
 3. Mail trap: <https://www.mailtrap.io>
+4. https://medium.com/@nem25/setting-up-your-own-bulk-mail-server-using-sendy-and-aws-20d05ee01362
 
 
 ### MongoDb and Mongoose
@@ -68,9 +69,9 @@ app.use(cb);
    5. protect against HTTP Parameter Pollution attacks: <https://github.com/analog-nico/hpp>
    6. cors: <https://github.com/expressjs/cors>
    7. ssl: [Detailed thoughts on https](https://www.smashingmagazine.com/2017/06/guide-switching-http-https/)
-      1. [setting-up-a-node-js-app-on-a-linux-ami-on-an-aws-ec2-instance-with-nginx](https://medium.com/@nishankjaintdk/setting-up-a-node-js-app-on-a-linux-ami-on-an-aws-ec2-instance-with-nginx-59cbc1bcc68c)
-      2. [node-nginx-ec2 setup](https://regbrain.com/article/node-nginx-ec2)
-      3. [serving-a-website-on-a-registered-domain-with-https-using-nginx-and-lets-encrypt](https://medium.com/@nishankjaintdk/serving-a-website-on-a-registered-domain-with-https-using-nginx-and-lets-encrypt-8d482e01a682)
+       1. [setting-up-a-node-js-app-on-a-linux-ami-on-an-aws-ec2-instance-with-nginx](https://medium.com/@nishankjaintdk/setting-up-a-node-js-app-on-a-linux-ami-on-an-aws-ec2-instance-with-nginx-59cbc1bcc68c)
+      1. [node-nginx-ec2 setup](https://regbrain.com/article/node-nginx-ec2)
+      2. [serving-a-website-on-a-registered-domain-with-https-using-nginx-and-lets-encrypt](https://medium.com/@nishankjaintdk/serving-a-website-on-a-registered-domain-with-https-using-nginx-and-lets-encrypt-8d482e01a682)
    
 
 ### Logging
@@ -78,7 +79,12 @@ app.use(cb);
 1. [logging best practices](https://blog.bitsrc.io/logging-best-practices-for-node-js-applications-8a0a5969b94c)
 2. [guide nodejs blogging](https://www.twilio.com/blog/guide-node-js-logging)
 3. [winston example](https://truetocode.com/logging-in-node-js-express-application-using-winston-logger/)
+4. [winston example](https://stackify.com/winston-logging-tutorial/)
 
 ### Best practices
 
 1. [advanced best express practices](https://expressjs.com/en/advanced/best-practice-performance.html#do-logging-correctly)
+
+
+### Extra Readings
+1. [callbacks vs promises vs async/await](https://www.topcoder.com/callbacks-promises-async-await/)
