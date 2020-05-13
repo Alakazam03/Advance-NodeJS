@@ -4,7 +4,6 @@ const asyncHandler = require('../middleware/aysnc');
 const User = require('../models/User');
 const sendEmail = require('../utils/sendEmail');
 
-
 // @desc Register user
 // @route POST /api/v1/auth/register
 // @access Public
